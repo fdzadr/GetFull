@@ -1,43 +1,45 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import React from 'react';
 import { Inter } from '@next/font/google';
-import styles from '../styles/Home.module.css';
+import styles from '@/styles/daftar/daftar.module.css';
 import Link from 'next/link';
 import { useState } from 'react';
-import { signIn } from "next-auth/react";
-import React from 'react';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/router';
 
-const inter = Inter({ subsets: ['latin'] })
+export default function Daftar() {
 
-export default function Home() {
-  
-  
   const router = useRouter();
 
   const [phonenumber, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [cpassword, setCpassword] = useState("");
 
   const handler = async (e) => {
-    e.preventDefault();
+    e.preventDefault();   
 
     let pn = phonenumber;
     let p = password;
+    let cp = cpassword;
 
     console.log(phonenumber,password)
 
-    
-    const status = await signIn('credentials',{
-      redirect:false,
-      phonenumber:pn,
-      password:p,
-      callbackUrl:"http://localhost:3000/daftar/portal"
-    })
+    const options = {
+      method:"POST",
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({phonenumber:pn, password:p, cpassword:cp})
+    }
 
-    if(status.ok) router.push(status.url) 
+    await fetch('http://localhost:3000/api/auth/signup', options)
+      .then(res=>res.json())
+      .then((data)=>{
+        console.log(data);
+        if(data.status)router.push('http://localhost:3000');
+        else alert(data.message);
+      })
+
   }
-
 
 
 
@@ -60,27 +62,45 @@ export default function Home() {
               />
             </div>
         
-            <div className={styles.login_main}>
-                <div className="login_field">
+            <div className={styles.daftar_main}>
+                <div className="daftar_main">
                     <input 
                     type="text" 
-                    className={styles.login_input} 
+                    className={styles.daftar_input} 
                     placeholder="Phone Number"
                     onChange={(e) => setPhone(e.target.value)}
                     />
                 </div>
+
+                <div className="daftar_main">
+                    <input 
+                    type="text" 
+                    className={styles.daftar_input} 
+                    placeholder="Username"
+                    onChange={(e) => setPhone(e.target.value)}
+                    />
+                </div>
         
-                <div className="login_field">
+                <div className="daftar_main">
                     <input 
                     type="password" 
-                    className={styles.login_input} 
+                    className={styles.daftar_input} 
                     placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
+
+                <div className="daftar_main">
+                    <input 
+                    type="text" 
+                    className={styles.daftar_input} 
+                    placeholder="Confirm Password"
+                    onChange={(e) => setPhone(e.target.value)}
+                    />
+                </div>
         
                 <div className="buttons">
-                    <Link href="#"><button onClick={(e) => handler(e)} className={styles.login_btn}>Masuk</button></Link>
+                    <Link href="#"><button onClick={(e) => handler(e)} className={styles.daftar_btn}>Daftar</button></Link>
                 </div>
 
                 <div className={styles.break}>
@@ -99,13 +119,13 @@ export default function Home() {
                             />
                             </span>
                             &nbsp;
-                            Masuk dengan Google
+                            Daftar dengan Google
                         </button>
                         </Link>
                 </div>
 
-                <div className={styles.regisask}>
-                    Belum punya akun? <Link href="/daftar" className="goregister">Daftar</Link>
+                <div className={styles.logask}>
+                    Sudah punya akun? <Link href="/daftar" className="golog">Masuk</Link>
                 </div>
             </div>
         </div>

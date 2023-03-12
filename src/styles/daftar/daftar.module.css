@@ -1,0 +1,83 @@
+.logo {
+    text-align: center;
+  }
+  
+  .daftar_main {
+    text-align: center;
+    margin-top: 10%;
+  }
+  
+  .daftar_input {
+    border: none;
+    background: var(--abu-bg);
+    margin: 0 0 10px 0;
+    padding: 10px;
+    width: 250px;
+    border-radius: 3px;
+    color: var(--ijo-3);
+    font-size: 12px;
+    box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  .daftar_input::placeholder {
+    color: var(--ijo-3);
+    opacity: 1;
+  }
+  
+  .daftar_input::-ms-input-placeholder {
+    color: var(--ijo-3);
+  }
+  
+  .daftar_input:-ms-input-placeholder {
+    color: var(--ijo-3);
+  }
+  
+  .daftar_input:active,
+  .daftar_input:focus,
+  .daftar_input:hover {
+  outline: none;
+  }
+  
+  .daftar_btn {
+    border: none;
+    background: var(--ijo-3);
+    margin: 15px 0 0 0;
+    padding: 10px;
+    width: 100%;
+    border-radius: 30px;
+    color: var(--putih-6);
+    font-size: 12px;
+    box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.3); 
+  }
+  
+  .third_btn {
+    border: none;
+    background: #FCFDFE;
+    margin: 5px 0 0 0;
+    padding: 10px;
+    width: 250px;
+    border-radius: 3px;
+    color: #2B4535;
+    font-size: 12px;
+    box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.3); 
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  .break {
+    margin: 15px 0 0 0;
+  }
+  
+  .logask {
+    margin: 15px 0 0 0;
+    color: var(--ijo-gelap-1);
+  }
+  
+  .logask a {
+    text-decoration: none;
+    color: var(--ijo-3);
+  }
+  
+  .icon {
+    margin: 0 5px 0 0;
+  }
