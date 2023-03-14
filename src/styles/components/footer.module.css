@@ -1,0 +1,10 @@
+.container {
+   padding: 5px;
+   display: flex;
+   justify-content: space-around;
+}
+
+.logo {
+    border: none;
+    background-color: transparent;
+}

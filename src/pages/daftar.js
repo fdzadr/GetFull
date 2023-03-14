@@ -100,7 +100,7 @@ export default function Daftar() {
                 </div>
         
                 <div className="buttons">
-                    <Link href="#"><button onClick={(e) => handler(e)} className={styles.daftar_btn}>Daftar</button></Link>
+                    <Link href="/index"><button onClick={(e) => handler(e)} className={styles.daftar_btn}>Daftar</button></Link>
                 </div>
 
                 <div className={styles.break}>

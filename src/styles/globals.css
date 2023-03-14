@@ -10,6 +10,17 @@
   --abu-bg: #F3F3F3;
 }
 
+nav {
+  background-color: var(--ijo-3);
+  height: 70px;
+  width: 101%;
+}
+
+footer {
+  background-color: var(--ijo-3);
+  width: 101%;
+}
+
 body {
   background-color: var(--putih-6);
 }
@@ -33,7 +44,4 @@ body {
       margin-top: 110%;
     }
   
-    .register_btn {
-      width: 100px;
-    }
 }
