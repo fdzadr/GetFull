@@ -25,6 +25,8 @@ export default function Home() {
 
             {/* GetRich Portal */}
             <Portal/>
+
+            {/* Carousel */}
             
         </div>
         </main>
