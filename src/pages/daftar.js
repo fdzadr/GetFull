@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { Inter } from '@next/font/google';
 import styles from '@/styles/daftar/daftar.module.css';
+import { signIn } from "next-auth/react";
 import Link from 'next/link';
 import { useState } from 'react';
 import { useFormik } from 'formik';
@@ -15,20 +16,22 @@ export default function Daftar() {
   const [phonenumber, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
+  const [username, setUsername] = useState("");
 
   const handler = async (e) => {
     e.preventDefault();   
 
     let pn = phonenumber;
+    let u = username;
     let p = password;
     let cp = cpassword;
 
-    console.log(phonenumber,password)
+    console.log(phonenumber,username,password)
 
     const options = {
       method:"POST",
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({phonenumber:pn, password:p, cpassword:cp})
+      body:JSON.stringify({phonenumber:pn, username:u, password:p, cpassword:cp})
     }
 
     await fetch('http://localhost:3000/api/auth/signup', options)
@@ -40,6 +43,11 @@ export default function Daftar() {
       })
 
   }
+
+  async function handleGoogleSignin(){
+    signIn('google',{callbackUrl: "http://localhost:3000/"})
+  }
+  
 
 
 
@@ -77,7 +85,7 @@ export default function Daftar() {
                     type="text" 
                     className={styles.daftar_input} 
                     placeholder="Username"
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
         
@@ -92,15 +100,15 @@ export default function Daftar() {
 
                 <div className="daftar_main">
                     <input 
-                    type="text" 
+                    type="password" 
                     className={styles.daftar_input} 
                     placeholder="Confirm Password"
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={(e) => setCpassword(e.target.value)}
                     />
                 </div>
         
                 <div className="buttons">
-                    <Link href="#"><button onClick={(e) => handler(e)} className={styles.daftar_btn}>Daftar</button></Link>
+                    <Link href="/"><button onClick={(e) => handler(e)} className={styles.daftar_btn}>Daftar</button></Link>
                 </div>
 
                 <div className={styles.break}>
@@ -108,8 +116,8 @@ export default function Daftar() {
                 </div>
 
                 <div class="buttons">
-                        <Link href="#">
-                        <button className={styles.third_btn}>
+                        
+                        <button className={styles.third_btn} onClick={handleGoogleSignin}>
                             <span className={styles.icon}>
                             <Image 
                             src="/aset/login n signin aset/google.svg" 
@@ -121,11 +129,11 @@ export default function Daftar() {
                             &nbsp;
                             Daftar dengan Google
                         </button>
-                        </Link>
+                        
                 </div>
 
                 <div className={styles.logask}>
-                    Sudah punya akun? <Link href="/daftar" className="golog">Masuk</Link>
+                    Sudah punya akun? <Link href="/" className="golog">Masuk</Link>
                 </div>
             </div>
         </div>

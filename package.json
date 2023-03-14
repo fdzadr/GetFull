@@ -10,9 +10,14 @@
   },
   "dependencies": {
     "@next/font": "13.2.4",
+    "bcryptjs": "^2.4.3",
+    "firebase": "^9.17.2",
     "formik": "^2.2.9",
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.1",
     "next": "13.2.4",
     "next-auth": "^4.20.1",
+    "next-connect": "^0.13.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   }
