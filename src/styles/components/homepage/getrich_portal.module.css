@@ -1,0 +1,55 @@
+.getrich {
+    background-color: var(--ijo-3);
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.getrich_saldo_btn {
+    border: none;
+    outline: none;
+    background-color: var(--ijo-muda-5);
+    border-radius: 5px;
+    text-align: start;
+    width: 150px;
+    height: 45px;
+    font-size: 12px;
+    color: var(--putih-6);
+}
+
+.arr_btn_container {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    height: 45px;
+    width: 200px;
+}
+
+.arr_btn {
+    text-align: center;
+    color: var(--putih-6);
+}
+
+.getrich_arr_icon {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.label {
+    font-size: 10px;
+    display: block;
+}
+
+ /* Galaxy Fold */
+ @media screen and (min-width: 280px) and (max-width: 285px) {
+    .getrich_saldo_btn {
+        width: 100px;
+    }
+
+    .arr_btn_container {
+        width: 120px;
+    }
+}
