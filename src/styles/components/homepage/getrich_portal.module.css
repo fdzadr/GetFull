@@ -1,6 +1,5 @@
 .getrich {
     background-color: var(--ijo-3);
-    margin-top: 20px;
     padding: 10px;
     border-radius: 15px;
     display: flex;
@@ -43,8 +42,25 @@
     display: block;
 }
 
+@media screen and (min-width: 390px) and (max-width: 480px) {
+    .getrich {
+        width: 360px;
+    }
+}
+    
+    /* Iphone SE */
+  @media screen and (min-width: 290px) and (max-width: 380px) {
+    .getrich {
+        width: 320px;
+    }
+}
+
  /* Galaxy Fold */
  @media screen and (min-width: 280px) and (max-width: 285px) {
+    .getrich {
+        width: 256px;
+    }
+
     .getrich_saldo_btn {
         width: 100px;
     }

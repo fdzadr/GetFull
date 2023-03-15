@@ -1,11 +1,10 @@
 .search_box {
     justify-content: center;
     display: flex;
-    margin-top: 20px;
 }
 
 .search_icon {
-    border: 1px solid var(--abu-agak-gelap);
+    border: 3px solid var(--abu-agak-gelap);
     border-right: none;
     outline: none;
     background-color: transparent;
@@ -16,8 +15,8 @@
 .search_form {
     border-left: none;
     border-right: none;
-    border-top: 1px solid var(--abu-agak-gelap);
-    border-bottom: 1px solid var(--abu-agak-gelap);
+    border-top: 3px solid var(--abu-agak-gelap);
+    border-bottom: 3px solid var(--abu-agak-gelap);
     padding: 10px;
 }
 
@@ -26,7 +25,7 @@
 }
 
 .search_setting {
-    border: 1px solid var(--abu-agak-gelap);
+    border: 3px solid var(--abu-agak-gelap);
     border-left: none;
     outline: none;
     background-color: transparent;

@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { signIn } from "next-auth/react";
 import React from 'react';
-import { useFormik } from 'formik';
 import { useRouter } from 'next/router';
 import firebase from '../pages/api/auth/firebase'
 import { getAuth, RecaptchaVerifier } from "firebase/auth";

@@ -6,7 +6,6 @@ import styles from '@/styles/daftar/daftar.module.css';
 import { signIn } from "next-auth/react";
 import Link from 'next/link';
 import { useState } from 'react';
-import { useFormik } from 'formik';
 import { useRouter } from 'next/router';
 
 export default function Daftar() {

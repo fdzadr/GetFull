@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import Navbar from '/components/navbar';
 import Footer from '/components/footer';
-import Searchbox from 'components/homepage/searchbox';
+import Searchbox from '/components/homepage/searchbox';
 import Portal from '/components/homepage/getrich_portal';
+import Carousel from '/components/homepage/carousel/carousel';
+import Product from '/components/product card/carousel_product_card';
 import styles from '@/styles/homepage/homepage.module.css';
 import Image from 'next/image';
 
@@ -21,13 +23,27 @@ export default function Home() {
         <main>
         <div className="container">
             {/* Search box */}
-            <Searchbox/>
+            <div className={styles.searchbox}>
+                <Searchbox/>
+            </div>
 
             {/* GetRich Portal */}
-            <Portal/>
+            <div className={styles.gr_portal}>
+                <Portal/>
+            </div>
 
             {/* Carousel */}
-            
+            <div className={styles.carousel_home}>
+                <Carousel/>
+            </div>
+
+            {/* Product */}
+            <div className={styles.product_section}>
+                <div className={styles.product_carousel}>
+                    <Product/>
+                </div>
+            </div>
+
         </div>
         </main>
 

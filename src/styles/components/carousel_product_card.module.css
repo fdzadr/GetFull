@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    text-align: center;
+    width: 170px;
+    height: 250px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+.card_body {
+    text-align: start;
+    margin-top: 10px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.img {
+    border-radius: 10px;
+}

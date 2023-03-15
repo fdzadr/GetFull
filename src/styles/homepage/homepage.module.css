@@ -1,0 +1,22 @@
+.searchbox {
+    margin-top: 20px;
+}
+
+.gr_portal {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel_home {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.product_section {
+    margin-top: 20px;
+}
+
+.product_carousel {
+    display: flex;
+}
