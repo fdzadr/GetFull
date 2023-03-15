@@ -8,40 +8,14 @@ import Footer from '/components/footer';
 import Navbar from '/components/navbar';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { getSession, useSession, signOut } from "next-auth/react"
 
 export default function Daftar() {
 
-  const router = useRouter();
-
-  const [phonenumber, setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [cpassword, setCpassword] = useState("");
-
-  const handler = async (e) => {
-    e.preventDefault();   
-
-    let pn = phonenumber;
-    let p = password;
-    let cp = cpassword;
-
-    console.log(phonenumber,password)
-
-    const options = {
-      method:"POST",
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({phonenumber:pn, password:p, cpassword:cp})
+    const{ data:session } = useSession()
+    function handleSignOut(){
+        signOut()
     }
-
-    await fetch('http://localhost:3000/api/auth/signup', options)
-      .then(res=>res.json())
-      .then((data)=>{
-        console.log(data);
-        if(data.status)router.push('http://localhost:3000');
-        else alert(data.message);
-      })
-
-  }
-
 
 
   return (
@@ -162,11 +136,28 @@ export default function Daftar() {
         </div>
 
         <div className="buttons">
-                <Link href="/"><button onClick={(e) => handler(e)} className={styles.logout_btn}>Logout</button></Link>
+                <Link href="/"><button onClick={handleSignOut} className={styles.logout_btn}>Logout</button></Link>
         </div>
         
       </div>
       <Footer/>
     </>
   )
+}
+
+export async function getServerSideProps({req}){
+    const session = await getSession({req})
+
+    if(!session){
+        return{
+            redirect:{
+                destination:'http://localhost:3000',
+                permanent:false
+            }
+        }
+    }
+
+    return {
+        props: {session}
+    }
 }

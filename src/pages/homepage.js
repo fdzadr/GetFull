@@ -7,6 +7,7 @@ import Carousel from '/components/homepage/carousel/carousel';
 import Product from '/components/product card/carousel_product_card';
 import styles from '@/styles/homepage/homepage.module.css';
 import Image from 'next/image';
+import { getSession, useSession, signOut } from "next-auth/react"
 
 export default function Home() {
     return (
@@ -50,4 +51,21 @@ export default function Home() {
         <Footer/>
         </>
     )
+}
+
+export async function getServerSideProps({req}){
+    const session = await getSession({req})
+
+    if(!session){
+        return{
+            redirect:{
+                destination:'http://localhost:3000',
+                permanent:false
+            }
+        }
+    }
+
+    return {
+        props: {session}
+    }
 }
