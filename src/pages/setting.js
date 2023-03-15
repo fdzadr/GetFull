@@ -7,7 +7,6 @@ import Link from 'next/link';
 import Footer from '/components/footer';
 import Navbar from '/components/navbar';
 import { useState } from 'react';
-import { useFormik } from 'formik';
 import { useRouter } from 'next/router';
 
 export default function Daftar() {

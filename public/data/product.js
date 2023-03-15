@@ -13,11 +13,4 @@ export const products = [
         price: "$29.99",
         imageURL: "https://via.placeholder.com/800x400?text=Slide+1",
     },
-    {
-        id: 3,
-        name: "Makanan Lejat dan Bergiji",
-        description: "This is a description of product 3.",
-        price: "$39.99",
-        imageURL: "https://via.placeholder.com/800x400?text=Slide+1",
-    },
   ];
