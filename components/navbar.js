@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from '@/styles/components/navbar.module.css';
+import Link from 'next/link';
 
 export default function Navbar() {
     return (
@@ -16,12 +17,14 @@ export default function Navbar() {
                 </div>
 
                 <div className={styles.logo_profile}>
+                    <Link href="setting">
                     <Image 
                     src="/aset/logo nav/profile.svg" 
                     alt="logo"
                     width={40}
                     height={40}
                     />
+                    </Link>
                 </div>
             </div>
         </nav>
