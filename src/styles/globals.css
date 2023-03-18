@@ -22,7 +22,7 @@ footer {
 }
 
 body {
-  background-color: var(--putih-6);
+  background-color: var(--abu-bg);
 }
 
 @media screen and (min-width: 390px) and (max-width: 480px) {
