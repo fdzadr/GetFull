@@ -18,6 +18,7 @@
     border-top: 3px solid var(--abu-agak-gelap);
     border-bottom: 3px solid var(--abu-agak-gelap);
     padding: 10px;
+    width: 100%;
 }
 
 .search_form:focus {
@@ -39,20 +40,3 @@
     background-color: var(--ijo-3);
 }
 
-@media screen and (min-width: 390px) and (max-width: 480px) {
-    .search_form {
-        width: 290px;
-    }
-}
-
-@media screen and (min-width: 290px) and (max-width: 380px) {
-    .search_form {
-        width: 250px;
-    }
-}
-
-@media screen and (min-width: 280px) and (max-width: 285px) {
-    .search_form {
-        width: 180px;
-    } 
-}
