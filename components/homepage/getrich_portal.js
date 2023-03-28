@@ -6,7 +6,7 @@ export default function Portal() {
     return (
         <>
         <div className={styles.getrich}>
-            <div class="buttons">
+            <div className={styles.saldo}>
                 <Link href="#">
                 <button className={styles.getrich_saldo_btn}>
                     GetRich

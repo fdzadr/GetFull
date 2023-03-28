@@ -12,6 +12,7 @@
     "@next/font": "13.2.4",
     "bcryptjs": "^2.4.3",
     "firebase": "^9.17.2",
+    "jquery": "^3.6.4",
     "mongodb": "^5.1.0",
     "mongoose": "^7.0.1",
     "next": "^13.2.4",

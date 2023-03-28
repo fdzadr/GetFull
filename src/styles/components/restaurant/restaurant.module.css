@@ -1,0 +1,29 @@
+.card {
+    margin: 20px 0 20px 0;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    height: 150px;
+}
+
+.link {
+    display: flex;
+    text-decoration: none;
+    color: black;
+}
+
+.img {
+    border-radius: 20px;
+}
+
+.card_body {
+    padding: 10px;
+    font-size: 12px;
+}
+
+.rating {
+    display: flex;
+}
+
+.rating p {
+    padding: 3px;
+}

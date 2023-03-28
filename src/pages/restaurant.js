@@ -2,15 +2,13 @@ import Head from 'next/head';
 import Navbar from '/components/navbar';
 import Footer from '/components/footer';
 import Searchbox from '/components/homepage/searchbox';
-import Portal from '/components/homepage/getrich_portal';
-import Carousel from '/components/homepage/carousel/carousel';
-import Slider from '/components/product card/carousel_product_card';
-import styles from '@/styles/homepage/homepage.module.css';
+import Restaurant from 'components/restaurant/restaurant';
+import styles from '@/styles/restaurant/restaurant.module.css';
 import Image from 'next/image';
 import { getSession, useSession, signOut } from "next-auth/react";
 import React from "react";
 
-export default function Home() {
+export default function Resto() {
     return (
         <>
         <Head>
@@ -24,28 +22,14 @@ export default function Home() {
 
         <main>
         <div className={styles.container}>
-            {/* Search box */}
-            <div className={styles.searchbox}>
+            <div className="mt-3">
                 <Searchbox/>
             </div>
-
-            {/* GetRich Portal */}
-            <div className={styles.gr_portal}>
-                <Portal/>
+            
+            <div className="mt-3">
+                <Restaurant/>
             </div>
-
-            {/* Carousel */}
-            <div className={styles.carousel_home}>
-                <Carousel/>
-            </div>
-
-            {/* Product */}
-            <div className={styles.product_section}>
-                <div className={styles.product_carousel}>
-                    <Slider/>
-                </div>
-            </div>
-
+            
         </div>
         </main>
 

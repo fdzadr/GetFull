@@ -1,23 +1,4 @@
 .img_carousel {
     border-radius: 20px;
-}
-
-@media screen and (min-width: 390px) and (max-width: 480px) {
-    .img_carousel {
-        width: 360px;
-    }
-}
-    
-    /* Iphone SE */
-@media screen and (min-width: 290px) and (max-width: 380px) {
-    .img_carousel {
-        width: 320px;
-    }
-}
-    
-    /* Galaxy Fold */
-@media screen and (min-width: 280px) and (max-width: 285px) {
-    .img_carousel {
-        width: 256px;
-    }
+    width: 100%;
 }
