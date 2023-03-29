@@ -11,6 +11,7 @@
 }
 
 .card_body {
+    margin-left: 6px;
     text-align: start;
     width: 10px;
 }

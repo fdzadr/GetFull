@@ -15,7 +15,7 @@ export default function Carousels() {
       {items.map((item) => (
         <Carousel.Item key={item.id} interval={4000}>
             <Image 
-                src={item.imageUrl} 
+                src={'aset/gambarbesar1.svg'} 
                 alt="logo google"
                 width={320}
                 height={120}

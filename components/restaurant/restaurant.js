@@ -6,14 +6,25 @@ import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 
 export default function Restaurant() {
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:3000/api/data-usaha", {
+            method: "GET"
+        }).then((res) => res.json()).then((data) => setData(data.data))
+        console.log(data)
+    }, []);
+
+
     return (
         <>
         <div>
-        {restaurants.map((restaurant) => (
-            <div className={styles.card} key={restaurant.id}>
+        {data.map((item) => (
+            <div className={styles.card}>
                 <Link href="#" className={styles.link}>
                 <Image 
-                    src={restaurant.imageURL} 
+                    src="/aset/listmerch aset/merch1.svg" 
                     alt="logo"
                     width={180}
                     height={150}
@@ -21,8 +32,8 @@ export default function Restaurant() {
                 />
 
                 <div className={styles.card_body}>
-                    <h6>{restaurant.nama}</h6>
-                    <p>{restaurant.alamat}</p>
+                    <h6>{item.namaresto}</h6>
+                    <p>{item.alamat}</p>
 
                     <div className={styles.rating}>
                         <Image 
@@ -32,7 +43,7 @@ export default function Restaurant() {
                             height={20}
                             className="star"
                         />
-                        <p>{restaurant.rating}</p>
+                        <p>4.8</p>
                     </div>
                 </div>
                 </Link>
