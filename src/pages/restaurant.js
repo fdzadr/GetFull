@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Navbar from '/components/navbar';
 import Footer from '/components/footer';
 import Searchbox from '/components/homepage/searchbox';
-import Restaurant from 'components/restaurant/restaurant';
+import Restaurant from 'components/restaurant/restaurant_display';
 import styles from '@/styles/restaurant/restaurant.module.css';
 import Image from 'next/image';
 import { getSession, useSession, signOut } from "next-auth/react";

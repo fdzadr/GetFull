@@ -1,19 +1,19 @@
 import Link from 'next/link';
 import Image from "next/image";
-import { restaurants } from "public/data/restaurant";
+import { restaurants } from "public/data/restaurants";
 import styles from '@/styles/components//restaurant/restaurant.module.css'
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 
-export default function Restaurant() {
+export default function Restaurant({ restaurant }) {
     return (
         <>
         <div>
         {restaurants.map((restaurant) => (
             <div className={styles.card} key={restaurant.id}>
-                <Link href="#" className={styles.link}>
+                <Link href={`/restaurant/${restaurant.nama}`} className={styles.link}>
                 <Image 
-                    src={restaurant.imageURL} 
+                    src={restaurant.image} 
                     alt="logo"
                     width={180}
                     height={150}
