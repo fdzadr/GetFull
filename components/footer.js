@@ -11,7 +11,7 @@ export default function Navbar() {
                 <Link href="/restaurant">
                 <Image 
                     src="/aset/footer/resto.svg" 
-                    alt="logo google"
+                    alt="resto"
                     width={40}
                     height={40}
                 />
@@ -22,7 +22,7 @@ export default function Navbar() {
                 <Link href="/homepage">
                 <Image 
                     src="/aset/footer/home.svg" 
-                    alt="logo google"
+                    alt="home"
                     width={40}
                     height={40}
                 />
@@ -33,7 +33,7 @@ export default function Navbar() {
                 <Link href="/cart">
                 <Image 
                     src="/aset/footer/cart.svg" 
-                    alt="logo google"
+                    alt="cart"
                     width={40}
                     height={40}
                 />

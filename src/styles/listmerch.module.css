@@ -1,0 +1,142 @@
+.logo {
+    text-align: center;
+  }
+  
+  .setting_main {
+    text-align: center;     
+    text-decoration: none;
+  }
+  
+  .daftar_input {
+    border: none;
+    background: var(--abu-bg);
+    margin: 0 0 10px 0;
+    padding: 10px;
+    width: 250px;
+    border-radius: 3px;
+    color: var(--ijo-3);
+    font-size: 12px;
+    box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  .daftar_input::placeholder {
+    color: var(--ijo-3);
+    opacity: 1;
+  }
+  
+  .daftar_input::-ms-input-placeholder {
+    color: var(--ijo-3);
+  }
+  
+  .daftar_input:-ms-input-placeholder {
+    color: var(--ijo-3);
+  }
+  
+  .daftar_input:active,
+  .daftar_input:focus,
+  .daftar_input:hover {
+  outline: none;
+  }
+  
+  .box {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .logout_btn {
+    border: none;
+    background: var(--putih-6);
+    margin-top: 15px;
+    padding: 10px;
+    width: 90%;
+    border-radius: 30px;
+    color: var(--ijo-3);
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  
+  }
+  
+  .third_btn {
+    border: none;
+    background: #FCFDFE;
+    margin: 5px 0 0 0;
+    padding: 10px;
+    width: 250px;
+    border-radius: 3px;
+    color: #2B4535;
+    font-size: 12px;
+    box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.3); 
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  .break {
+    margin: 0 0 0 0;
+  }
+  
+  .logask {
+    margin: 15px 0 0 0;
+    color: var(--ijo-gelap-1);
+  }
+  
+  .logask a {
+    text-decoration: none;
+    color: var(--ijo-3);
+  }
+  
+  .icon {
+    margin: 0 5px 0 0;
+  }
+
+  .line1 {
+    margin-top: 1px;
+    width: 100%;
+    height: 60px;
+    text-align: left;
+    padding: 6px;
+    background-color: var(--putih-6);
+    border-top: 0px;
+    border-bottom: 1px solid #000000;
+    border-left: 0px;
+    border-right: 0px;
+    color: black;
+  }
+  
+  .panah_ijo {
+    margin-left: 90%;
+    margin-top: -31px;
+  } 
+  
+  .rating {
+    margin-left: 90%;
+    margin-top: -57px;
+  }
+
+.container {
+    margin-left: 55px;
+    margin-top: -47px;
+    height: 60px;
+    width: 50%;
+    font-size: 16px;
+    font-weight: 450;
+    line-height: 1.2;
+}
+
+.small {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.h1 {
+    font-size: 10px;
+}
+
+.h2 {
+    font-size: 12px;
+}
+
+  .searchbox {
+    margin: 15px 0;
+}
