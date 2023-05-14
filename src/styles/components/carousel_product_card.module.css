@@ -8,11 +8,12 @@
     height: 250px;
     border: 3px solid black;
     border-radius: 10px;
+    background-color: var(--putih-6)
 }
 
 .card_body {
     text-align: start;
-    width: 10px;
+    width: 10px;;
 }
 
 .link {
