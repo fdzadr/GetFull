@@ -30,12 +30,14 @@ export default function Navbar() {
             </button>
 
             <button className={styles.logo}>
+                <Link href="/cart">
                 <Image 
                     src="/aset/footer/cart.svg" 
                     alt="cart"
                     width={40}
                     height={40}
                 />
+                </Link>
             </button>
         </div>
         </footer>
