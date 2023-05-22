@@ -54,7 +54,6 @@ export default function Home() {
     )
 }
 
-/*
 export async function getServerSideProps({req}){
     const session = await getSession({req})
 
@@ -71,4 +70,3 @@ export async function getServerSideProps({req}){
         props: {session}
     }
 }
-*/

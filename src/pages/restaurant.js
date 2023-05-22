@@ -38,7 +38,6 @@ export default function Resto() {
     )
 }
 
-/*
 export async function getServerSideProps({req}){
     const session = await getSession({req})
 
@@ -55,4 +54,3 @@ export async function getServerSideProps({req}){
         props: {session}
     }
 }
-*/

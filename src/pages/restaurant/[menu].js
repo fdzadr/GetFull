@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import styles from '@/styles/restaurant/menu.module.css'
 import Searchbox from '/components/homepage/searchbox';
 import Footer from '/components/footer';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 
 export default function Menu({ restaurant }) {
   const router = useRouter();
@@ -25,6 +25,32 @@ export default function Menu({ restaurant }) {
       setSelectedMenu(item);
     }
     setShowModal(!showModal);
+  };
+
+  const handleAddToCart = () => {
+
+    const cartItem = {
+      restaurantId: restaurant.id,
+      namaRestaurant: restaurant.nama,
+      menuId: selectedMenu.id,
+      namaMenu: selectedMenu.nama,
+      harga: selectedMenu.harga,
+    };
+  
+    fetch('/api/addCart', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(cartItem),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert('Item added to cart:', data);
+      })
+      .catch((error) => {
+        console.error('Error adding item to cart:', error);
+      });
   };
 
   return (
@@ -74,7 +100,7 @@ export default function Menu({ restaurant }) {
 
         {restaurant.menu.map((item) => (
           <div className={styles.box} key={item.id}>
-            <Button type="button" className={styles.box_link} onClick={() => handleModal(item)}>
+            <button type="button" className={styles.box_link} onClick={() => handleModal(item)}>
                 <Image 
                     src={item.image} 
                     alt="logo"
@@ -100,12 +126,12 @@ export default function Menu({ restaurant }) {
                         />
                     </div>
                 </div>
-            </Button>
+            </button>
           </div> 
         ))}
       </div>
 
-      <Modal show={showModal} onHide={handleModal}>
+      <Modal show={showModal} onHide={handleModal} aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header closeButton>
           <Modal.Title>{selectedMenu.nama}</Modal.Title>
         </Modal.Header>
@@ -121,9 +147,9 @@ export default function Menu({ restaurant }) {
           <h5 className='d-flex justify-content-center'>{selectedMenu.harga}</h5>
         </Modal.Body>
         <Modal.Footer className={styles.btn_cart}>
-          <Button className={styles.cart}>
+          <button className={styles.cart} onClick={handleAddToCart}>
             Tambahkan ke Cart
-          </Button>
+          </button>
         </Modal.Footer>
       </Modal>
 
