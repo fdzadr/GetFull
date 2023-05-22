@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import styles from '@/styles/restaurant/menu.module.css'
 import Searchbox from '/components/homepage/searchbox';
 import Footer from '/components/footer';
+import { Modal } from 'react-bootstrap';
 
 export default function Menu({ restaurant }) {
   const router = useRouter();
@@ -15,6 +16,42 @@ export default function Menu({ restaurant }) {
   function Back() {
   router.back();
   }
+
+  const [showModal, setShowModal] = useState(false);
+  const [selectedMenu, setSelectedMenu] = useState({});
+
+  const handleModal = (item) => {
+    if (item) {
+      setSelectedMenu(item);
+    }
+    setShowModal(!showModal);
+  };
+
+  const handleAddToCart = () => {
+
+    const cartItem = {
+      restaurantId: restaurant.id,
+      namaRestaurant: restaurant.nama,
+      menuId: selectedMenu.id,
+      namaMenu: selectedMenu.nama,
+      harga: selectedMenu.harga,
+    };
+  
+    fetch('/api/addCart', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(cartItem),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert('Item added to cart:', data);
+      })
+      .catch((error) => {
+        console.error('Error adding item to cart:', error);
+      });
+  };
 
   return (
     <div>
@@ -63,7 +100,7 @@ export default function Menu({ restaurant }) {
 
         {restaurant.menu.map((item) => (
           <div className={styles.box} key={item.id}>
-            <Link href={`/restaurant/${menu.nama}`} className={styles.box_link}>
+            <button type="button" className={styles.box_link} onClick={() => handleModal(item)}>
                 <Image 
                     src={item.image} 
                     alt="logo"
@@ -89,10 +126,32 @@ export default function Menu({ restaurant }) {
                         />
                     </div>
                 </div>
-            </Link>
-          </div>
+            </button>
+          </div> 
         ))}
       </div>
+
+      <Modal show={showModal} onHide={handleModal} aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal.Header closeButton>
+          <Modal.Title>{selectedMenu.nama}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Image 
+            src={selectedMenu.image} 
+            alt="logo"
+            width={200}
+            height={200}
+            className="mx-auto d-block"
+          />
+          <p className='mt-3 d-flex justify-content-center'>{selectedMenu.deskripsi}</p>
+          <h5 className='d-flex justify-content-center'>{selectedMenu.harga}</h5>
+        </Modal.Body>
+        <Modal.Footer className={styles.btn_cart}>
+          <button className={styles.cart} onClick={handleAddToCart}>
+            Tambahkan ke Cart
+          </button>
+        </Modal.Footer>
+      </Modal>
 
       <Footer/>
     </div>

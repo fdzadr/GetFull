@@ -46,15 +46,18 @@
 
 .box {
     margin: 20px 0 20px 0;
-    border-radius: 20px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
     height: 150px;
 }
 
 .box_link {
+    background-color: transparent;
+    border: 1px solid black;
     display: flex;
     text-decoration: none;
     color: black;
+    padding: 0;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 .box_img {
@@ -70,4 +73,17 @@
 
 .heart {
     text-align: end;
+}
+
+.btn_cart {
+    display: flex;
+    justify-content: center;
+}
+
+.cart {
+    background-color: var(--ijo-3);
+    width: 265px;
+    height: 40px;
+    border-radius: 20px;
+    color: white;
 }
