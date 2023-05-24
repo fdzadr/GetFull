@@ -1,0 +1,11 @@
+.logo_getfull {
+    position: absolute;
+    left: 60px;
+    top: 20px
+}
+
+.header_back {
+    outline: none;
+    background-color: transparent;
+    border: none;
+}

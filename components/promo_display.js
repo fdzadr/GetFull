@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from "next/image";
-import { restaurants } from "public/data/restaurants";
+import { restaurants } from "public/data/promodummy";
 import styles from '@/styles/promo.module.css'
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
@@ -20,18 +20,18 @@ export default function Promo({ restaurant }) {
                 <div className={styles.link}>
                     <div className={styles.card_body}>
                         <h6>{restaurant.nama}</h6>
-                        <p>{restaurant.alamat}</p>
+                        <p>{restaurant.harga}</p>
                         
                     </div>
                     <div class="form-check">
                         <input className={styles.check} type="radio" value=""/>
-                    </div>
+                    </div>
                 </div>
             </div>
         ))}
         </div>
         <div className={styles.eta}>
-            <p>Promo Makanan</p>
+            <p>Promo Ongkos Kirim</p>
         </div>
         <div>
         {restaurants.map((restaurant) => (
@@ -39,21 +39,19 @@ export default function Promo({ restaurant }) {
                 <div className={styles.link}>
                     <div className={styles.card_body}>
                         <h6>{restaurant.nama}</h6>
-                        <p>{restaurant.alamat}</p>
+                        <p>{restaurant.harga}</p>
                         
                     </div>
                     <div class="form-check">
                         <input className={styles.check} type="radio" value=""/>
-                    </div>
+                    </div>
                 </div>
             </div>
         ))}
         </div>
         <footer class="fixed-bottom">
-        <Link href="#">
-            <div className={styles.foot}>
-                <h6>Pilih Promo Diskon</h6>
-            </div>
+        <Link href="/order" className={styles.foot}>
+            <h6>Pilih Promo Diskon</h6>
         </Link>
         </footer>
         </>

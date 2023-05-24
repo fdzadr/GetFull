@@ -1,0 +1,39 @@
+.container {
+    background-color: var(--abu-bg);
+    margin: 5px 0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.menu {
+    height: 70px;
+    background-color: white;
+    margin: 2px 0;
+    padding: 18px 0 0 0;
+}
+
+.resto {
+    height: 70px;
+    background-color: var(--ijo-3);
+    font-size: 18px;
+    color: white;
+    letter-spacing: 1px;
+    padding: 12px 0 0 20px;
+}
+
+.resto p {
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.img {
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    margin: -9px 30px;
+    position: absolute;
+}
+
+.menu p{
+    margin: 0 0 0 100px;
+    font-size: 14px;
+    line-height: 1.2;
+}
