@@ -1,1 +1,1 @@
-export const checkout = [{"restaurantId":1,"namaRestaurant":"Restoran Enak Mantep","menuId":3,"namaMenu":"Sate Ayam","harga":12},{"restaurantId":1,"namaRestaurant":"Restoran Enak Mantep","menuId":3,"namaMenu":"Sate Ayam","harga":12}]
+export const checkout = [{"restaurantId":1,"namaRestaurant":"Restoran Enak Mantep","menuId":1,"namaMenu":"Seblak","harga":10},{"restaurantId":2,"namaRestaurant":"Restoran Lejat dan Bergiji","menuId":2,"namaMenu":"Pasta","harga":10}]
