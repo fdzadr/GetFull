@@ -78,7 +78,7 @@ export default function payment({ getrichh }) {
                                 <p class="text-end">
                                     Total<br/>Rp30.000
                                 </p>  
-                            <Link href="#">
+                            <Link href="/otw">
                                 <div className={styles.cekout}>
                                     <h6>Bayar</h6>
                                 </div>
