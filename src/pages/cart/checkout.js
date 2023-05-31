@@ -1,10 +1,11 @@
 import { checkout } from '/public/data/checkout.js';
+import {promo} from '../../../public/data/promo';
 
 export default function CheckoutPage() {
   const adminFee = 2;
   const shippingCost = 2;
   const totalBefore = checkout ? checkout.reduce((total, item) => total + item.harga, 0) : 0;
-  const totalAfter = totalBefore + adminFee + shippingCost;
+  const totalAfter = totalBefore + adminFee + shippingCost ;
 
   return (
     <div>
