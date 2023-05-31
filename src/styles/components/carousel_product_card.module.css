@@ -13,7 +13,13 @@
 
 .card_body {
     text-align: start;
-    width: 10px;;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.card_body h5 {
+    font-size: 16px;
 }
 
 .link {

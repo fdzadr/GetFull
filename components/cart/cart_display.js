@@ -81,36 +81,36 @@ export default function cart() {
                 </div>
             ) : (
                 <div>
-                {Object.entries(groupByRestaurant).map(([restaurantId, items]) => (
-                <div className={styles.container}>
-                <div className={styles.resto}>
-                    <div key={restaurantId}>
-                    <p>Restaurant: {items[0].namaRestaurant}</p>
-                    </div>
-                </div>
-                    {items.map((item, index) => (
-                        <div className={styles.menu} key={item.id}>
-                        <Image 
-                        alt="logo"
-                        width={50}
-                        height={50}
-                        className={styles.img}
-                        />
-                            <div key={item.menuId}>
-                                <p>Menu: {item.namaMenu}</p>
-                                <p>Harga: {item.harga}</p>
-                            </div>
+                  {Object.entries(groupByRestaurant).map(([restaurantId, items]) => (
+                    <div className={styles.container}>
+                      <div className={styles.resto}>
+                        <div key={restaurantId}>
+                        <p>Restaurant: {items[0].namaRestaurant}</p>
                         </div>
-                    ))}
-                </div>
-                ))}
-                {cartData && cartData.length > 0 && (
-                    <div className={styles2.foot}>
-                    <p>Total Harga: {totalHarga}</p>
-                    <button className={styles2.cekout} onClick={handleCheckout}>Checkout</button>
-                    <button className={styles2.clear} onClick={handleClearCart}>Clear</button>
+                      </div>
+                      {items.map((item, index) => (
+                          <div className={styles.menu} key={item.id}>
+                            <Image 
+                            alt="logo"
+                            width={50}
+                            height={50}
+                            className={styles.img}
+                            />
+                                <div key={item.menuId}>
+                                    <p>Menu: {item.namaMenu}</p>
+                                    <p>Harga: {item.harga}</p>
+                                </div>
+                          </div>
+                      ))}
+                      {cartData && cartData.length > 0 && (
+                          <div className={styles2.foot}>
+                            <p>Total Harga: {totalHarga}</p>
+                            <button className={styles2.cekout} onClick={handleCheckout}>Checkout</button>
+                            <button className={styles2.clear} onClick={handleClearCart}>Clear</button>
+                          </div>
+                      )}
                     </div>
-                )}
+                  ))}
                 </div>
             )}
         

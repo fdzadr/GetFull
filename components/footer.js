@@ -30,7 +30,7 @@ export default function Navbar() {
             </button>
 
             <button className={styles.logo}>
-                <Link href="/cartfe">
+                <Link href="/cart">
                 <Image 
                     src="/aset/footer/cart.svg" 
                     alt="cart"
