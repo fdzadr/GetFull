@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Navbar from '/components/navbar';
+import Navback from '/components/navback';
 import Footer from '/components/footer';
 import Promo from 'components/promo_display';
 import styles from '@/styles/promo.module.css';
@@ -17,7 +17,7 @@ export default function promo() {
         <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <Navbar/>
+        <Navback/>
 
         <main>
         <div className={styles.container}>
