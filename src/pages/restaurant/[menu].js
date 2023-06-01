@@ -8,6 +8,7 @@ import styles from '@/styles/restaurant/menu.module.css'
 import Searchbox from '/components/homepage/searchbox';
 import Footer from '/components/footer';
 import { Modal } from 'react-bootstrap';
+import { data } from 'jquery';
 
 export default function Menu({ restaurant }) {
   const router = useRouter();
@@ -19,6 +20,25 @@ export default function Menu({ restaurant }) {
 
   const [showModal, setShowModal] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState({});
+
+  const [data, setData] = useState([]);
+
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/produk-api", {
+        method: "GET"
+    }).then((res) => res.json()).then((data) => setData(data.data))
+    console.log(data)
+  }, []);
+
+  const searchFilter = (data) => { 
+    return data.filter(
+    (product) => product.namaresto.toLowerCase()
+    .replace(/\s+/g, "")
+    .includes(query.toLowerCase().replace(/\s+/g, ""))
+  )};
+
+  const filtered = searchFilter(data)
 
   const handleModal = (item) => {
     if (item) {
@@ -98,7 +118,7 @@ export default function Menu({ restaurant }) {
       <div className={styles.content}>
       <Searchbox/>
 
-        {restaurant.menu.map((item) => (
+        {filtered.map((item) => (
           <div className={styles.box} key={item.id}>
             <button type="button" className={styles.box_link} onClick={() => handleModal(item)}>
                 <Image 
@@ -111,7 +131,7 @@ export default function Menu({ restaurant }) {
 
                 <div className={styles.box_body}>
                     <div>
-                      <h5>{item.nama}</h5>
+                      <h5>{item.namaproduk}</h5>
                       <p>{item.deskripsi}</p>
                       <h6>{item.harga}</h6>
                     </div>

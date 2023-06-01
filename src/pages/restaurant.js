@@ -80,7 +80,7 @@ export default function Resto() {
             
             {filtered.map((item) => (
                         <div className={styles1.card}>
-                            <Link href="#" className={styles1.link}>
+                            <Link href={`/restaurant/${item.namaresto}`} className={styles1.link}>
                             <Image 
                                 src="/aset/listmerch aset/merch1.svg" 
                                 alt="logo"
@@ -119,19 +119,19 @@ export default function Resto() {
     )
 }
 
-export async function getServerSideProps({req}){
-    const session = await getSession({req})
-    
-    if(!session){
-        return{
-            redirect:{
-                destination:'http://localhost:3000',
-                permanent:false
-            }
-        }
-    }
+// export async function getServerSideProps({req}){
+//     const session = await getSession({req})
 
-    return {
-        props: {session}
-    }
-}
+//     if(!session){
+//         return{
+//             redirect:{
+//                 destination:'http://localhost:3000',
+//                 permanent:false
+//             }
+//         }
+//     }
+
+//     return {
+//         props: {session}
+//     }
+// }
