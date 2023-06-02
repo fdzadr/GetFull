@@ -8,11 +8,11 @@ export default function handler(req, res) {
     const checkoutData = 'export const checkout = [{}];'; 
 
     const checkoutFilePath = path.join(process.cwd(), 'public/data/checkout.js');
-    const checkoutFileContent = `export const checkout = ${data};`;
+    const checkoutFileContent = fs.readFileSync(checkoutFilePath, 'utf8');
 
-    // const mergedData = `export const checkout = ${checkoutFileContent.replace('export const checkout = [{}];', '')}${data}`;
+    const mergedData = `export const checkout = ${checkoutFileContent.replace('export const checkout = [{}];', '')}${data}`;
 
-    fs.writeFile(checkoutFilePath, checkoutFileContent, (err) => {
+    fs.writeFile(checkoutFilePath, mergedData, (err) => {
       if (err) {
         console.error('Terjadi kesalahan saat menulis file checkout.js:', err);
         res.status(500).json({ message: 'Terjadi kesalahan saat menulis file checkout.js' });
