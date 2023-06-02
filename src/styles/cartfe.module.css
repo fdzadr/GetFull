@@ -77,9 +77,22 @@
     right: 0;
     background-color: var(--ijo-3);
     width: 120px;
-    margin-top: -56px;
+    margin-top: -9px;
     text-align: center;
-    padding: 14px 8px 14px 0;
+
+    color: white;
+}
+
+.clear {
+    
+    height: 50px;
+    position:absolute;
+    background-color: var(--ijo-3);
+    width: 120px;
+    right: 120px;
+    margin-top: -9px;
+    text-justify: auto;
+    padding-bottom: 0px;
     color: white;
 }
 
@@ -145,4 +158,8 @@
 
 .cartcont {
     display: flex;
+}
+
+.foot p{
+    position:absolute;
 }

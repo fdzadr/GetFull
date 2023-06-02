@@ -1,14 +1,25 @@
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { carts } from '/public/data/cart';
-import styles from '@/styles/cart/cart_info.module.css';
 
 export default function CartPage() {
   const [cartData, setCartData] = useState([]);
   const [totalHarga, setTotalHarga] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     setCartData(carts);
   }, []);
+
+  useEffect(() => {
+    if (cartData && cartData.length > 0) {
+      let total = 0;
+      cartData.forEach((item) => {
+        total += item.harga;
+      });
+      setTotalHarga(total);
+    }
+  }, [cartData]);
 
   const groupByRestaurant =
     cartData && cartData.length > 0
@@ -23,11 +34,44 @@ export default function CartPage() {
         }, {})
       : {};
 
+  const handleCheckout = () => {
+    if (cartData && cartData.length === 0) {
+      console.log('Keranjang kosong');
+      return;
+    }
+
+    const checkoutData = JSON.stringify(cartData);
+
+    fetch('/api/addCheckout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ data: checkoutData }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Data checkout berhasil disimpan:', data);
+        localStorage.removeItem('cartItems');
+        setCartData([]);
+        setTotalHarga(0);
+        router.push('/cart/checkout');
+      })
+      .catch((error) => {
+        console.error('Terjadi kesalahan saat checkout:', error);
+      });
+  };
+
+  const handleClearCart = () => {
+    setCartData([]);
+    setTotalHarga(0);
+  };
+
   return (
     <div>
-      {Object.keys(groupByRestaurant).length === 0 ? (
+      {!cartData || cartData.length === 0 ? (
         <div className='position-absolute top-50 start-50 translate-middle w-75 text-center'>
-          <h1>Waduh nggak ada apa-apa nich</h1>
+          <h1>Waduh, keranjang lagi kosong nih!</h1>
         </div>
       ) : (
         <div>
@@ -42,6 +86,13 @@ export default function CartPage() {
               ))}
             </div>
           ))}
+          {cartData && cartData.length > 0 && (
+            <div>
+              <h2>Total Harga: {totalHarga}</h2>
+              <button onClick={handleCheckout}>Checkout</button>
+              <button onClick={handleClearCart}>Clear</button> {/* Tombol Clear */}
+            </div>
+          )}
         </div>
       )}
     </div>
