@@ -8,7 +8,7 @@ export default function CheckoutPage() {
   const totalAfter = totalBefore + adminFee + shippingCost ;
 
   return (
-    <div>
+    <>
       {!checkout || checkout.length === 0 ? (
         <p>Tidak ada item dalam keranjang</p>
       ) : (
@@ -27,6 +27,6 @@ export default function CheckoutPage() {
           <button>Checkout</button>
         </div>
       )}
-    </div>
+    </>
   );
 }

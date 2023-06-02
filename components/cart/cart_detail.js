@@ -1,22 +1,21 @@
 import Link from 'next/link';
 import Image from "next/image";
 import styles from '@/styles/cart/cart_display.module.css';
-import  {carts}  from "public/data/cart";
+import  {checkout}  from "public/data/checkout";
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from 'next/router';
 import styles2 from '@/styles/cartfe.module.css'
 
-export default function cart() {
+export default function cartdetail() {
 
     const [cartData, setCartData] = useState([]);
     const [totalHarga, setTotalHarga] = useState(0);
     const router = useRouter();
 
     useEffect(() => {
-        setCartData(carts);
+        setCartData(checkout);
       }, []);
-      console.log(cartData)
     
     useEffect(() => {
         if (cartData && cartData.length > 0) {
@@ -27,17 +26,6 @@ export default function cart() {
           setTotalHarga(total);
         }
     }, [cartData]);
-
-    const calculateTotalHarga = (items) => {
-      if (items && items.length > 0){
-        let total = 0;
-        items.forEach((item) => {
-          total += item.harga;
-        });
-        return total;
-      }
-      return 0;
-    };
 
     const groupByRestaurant =
     cartData && cartData.length > 0
@@ -52,46 +40,15 @@ export default function cart() {
         }, {})
     : {};
 
-    // const handleCheckout = () => {
-    //     if (cartData && cartData.length === 0) {
-    //       console.log('Keranjang kosong');
-    //       return;
-    //     }
+    const handleCheckout = () => {
+        if (cartData && cartData.length === 0) {
+          console.log('Keranjang kosong');
+          return;
+        }
     
-    // const checkoutData = JSON.stringify(cartData);
+    const checkoutData = JSON.stringify(cartData);
 
-    // fetch('/api/addCheckout', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({ data: checkoutData }),
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       console.log('Data checkout berhasil disimpan:', data);
-    //       localStorage.removeItem('cartItems');
-    //       setCartData([]);
-    //       setTotalHarga(0);
-    //       router.push('/cart/order');
-    //     })
-    //     .catch((error) => {
-    //       console.error('Terjadi kesalahan saat checkout:', error);
-    //     });
-    // };
-    
-
-    const handleCheckout = (restaurantId) => {
-      const restaurantCartData = cartData.filter(item => item.restaurantId === restaurantId);
-    
-      if (!restaurantCartData || restaurantCartData.length === 0) {
-        console.log('Keranjang kosong');
-        return;
-      }
-    
-      const checkoutData = JSON.stringify(restaurantCartData);
-    
-      fetch('/api/addCheckout', {
+    fetch('/api/addCheckout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -102,15 +59,14 @@ export default function cart() {
         .then((data) => {
           console.log('Data checkout berhasil disimpan:', data);
           localStorage.removeItem('cartItems');
-          setCartData(cartData.filter(item => item.restaurantId !== restaurantId));
-          setTotalHarga(totalHarga - calculateTotalHarga(restaurantCartData));
-          router.push('/cart/order');
+          setCartData([]);
+          setTotalHarga(0);
+          router.push('/cart/checkout');
         })
         .catch((error) => {
           console.error('Terjadi kesalahan saat checkout:', error);
         });
     };
-    
   
     const handleClearCart = () => {
       setCartData([]);
@@ -135,7 +91,6 @@ export default function cart() {
                       {items.map((item, index) => (
                           <div className={styles.menu} key={item.id}>
                             <Image 
-                            src={item.image}
                             alt="logo"
                             width={50}
                             height={50}
@@ -147,13 +102,6 @@ export default function cart() {
                                 </div>
                           </div>
                       ))}
-                      {cartData && cartData.length > 0 && (
-                          <div className={styles2.foot}>
-                            <p>Total Harga: {calculateTotalHarga(items)}</p>
-                            <button className={styles2.cekout} onClick={() => handleCheckout(items[0].restaurantId)}>Checkout</button>
-                            <button className={styles2.clear} onClick={handleClearCart}>Clear</button>
-                          </div>
-                      )}
                     </div>
                   ))}
                 </div>

@@ -80,7 +80,7 @@ export default function Resto() {
             
             {filtered.map((item) => (
                         <div className={styles1.card}>
-                            <Link href="#" className={styles1.link}>
+                            <Link href={`/restaurant/${item.namaresto}`} className={styles1.link}>
                             <Image 
                                 src="/aset/listmerch aset/merch1.svg" 
                                 alt="logo"

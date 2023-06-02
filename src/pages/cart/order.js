@@ -2,16 +2,48 @@ import Link from 'next/link';
 import { getrich } from "public/data/getrich";
 import styles from '@/styles/order.module.css'
 import React, { useState, useEffect } from "react";
+import  {checkout}  from "public/data/checkout";
 import dynamic from "next/dynamic";
 import Head from 'next/head';
 import Navback from '/components/navback';
-import Cart from '/components/cart/cart_display';
+import Cartdetail from '/components/cart/cart_detail';
 import Footer from '/components/footer';
 import Image from 'next/image';
 import { getSession, useSession, signOut } from "next-auth/react";
 
 export default function order({ getrichh }) {
+
+    const [cartData, setCartData] = useState([]);
+    const [totalHarga, setTotalHarga] = useState(0);
+    const [totalHargaAkhir, setTotalHargaAkhir] = useState(0);
+
+
+    useEffect(() => {
+        setCartData(checkout);
+      }, []);
+
+    useEffect(() => {
+        if (cartData && cartData.length > 0) {
+          let total = 0;
+          cartData.forEach((item) => {
+            total += item.harga;
+          });
+          setTotalHarga(total);
+        }
+    }, [cartData]);
     
+    useEffect(() => {
+        if (cartData && cartData.length > 0) {
+          let totalakhir = 0;
+          let total = 0;
+          cartData.forEach((item) => {
+            total += item.harga;
+            totalakhir = total + 2000 + 8000;
+          });
+          setTotalHargaAkhir(totalakhir);
+        }
+    }, [cartData]);
+
     return (
         <>
         <Head>
@@ -42,7 +74,7 @@ export default function order({ getrichh }) {
                     Jl. Kenangan Jogja dan kawannya No.14, Pogung Empire, Bunga Melati, kec. Kerajaan Jogja 12345
                 </div>
 
-                <Cart/>
+                <Cartdetail/>
 
                 <div className={styles.promo}>
                     <b>Promo dipakai:<br/></b>
@@ -55,7 +87,7 @@ export default function order({ getrichh }) {
                     Subtotal<br/>Ongkos Kirim<br/>Diskon<br/>Biaya Admin<br/>
                     <b>Total</b>                    
                     <div className={styles.price}>
-                        <b>20.000<br/>8.000<br/>0<br/>2.000<br/>30.000</b>
+                        <b>{totalHarga}<br/>8000<br/>0<br/>2000<br/>{totalHargaAkhir}</b>
                     </div>  
                 </div>
         
@@ -63,7 +95,7 @@ export default function order({ getrichh }) {
                     <footer class="fixed-bottom">
                         <div className={styles.foot}>
                                 <p class="text-end">
-                                    Total<br/>Rp30.000
+                                    Total<br/>{totalHargaAkhir}
                                 </p>  
                             <Link href="/payment">
                                 <div className={styles.cekout}>
