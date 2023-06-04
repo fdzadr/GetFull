@@ -10,7 +10,7 @@ import Footer from '/components/footer';
 import Image from 'next/image';
 import { getSession, useSession, signOut } from "next-auth/react";
 
-export default function order({ getrichh }) {
+export default function order({}) {
     
     return (
         <>

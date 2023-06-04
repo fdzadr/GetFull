@@ -20,11 +20,11 @@ export default function Restaurant() {
     return (
         <>
         <div>
-        {data.map((item) => (
-            <div className={styles.card}>
-                <Link href="#" className={styles.link}>
+        {restaurants.map((restaurant) => (
+            <div className={styles.card} key={restaurant.id}>
+                <Link href={`/restaurant/${restaurant.nama}`} className={styles.link}>
                 <Image 
-                    src="/aset/listmerch aset/merch1.svg" 
+                    src={restaurant.image} 
                     alt="logo"
                     width={180}
                     height={150}
@@ -32,8 +32,8 @@ export default function Restaurant() {
                 />
 
                 <div className={styles.card_body}>
-                    <h6>{item.namaresto}</h6>
-                    <p>{item.alamat}</p>
+                    <h6>{restaurant.nama}</h6>
+                    <p>{restaurant.alamat}</p>
 
                     <div className={styles.rating}>
                         <Image 
@@ -43,7 +43,7 @@ export default function Restaurant() {
                             height={20}
                             className="star"
                         />
-                        <p>4.8</p>
+                        <p>{restaurant.rating}</p>
                     </div>
                 </div>
                 </Link>

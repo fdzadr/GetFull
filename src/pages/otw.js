@@ -7,6 +7,7 @@ import Head from 'next/head';
 import Navback from '/components/navback';
 import Cart from '/components/cart/cart_display';
 import Footer from '/components/footer';
+import MapContainer from '/components/map';
 import Image from 'next/image';
 import { getSession, useSession, signOut } from "next-auth/react";
 
@@ -26,13 +27,7 @@ export default function otw({ getrichh }) {
             <div className={styles.container}>
                 <h4>Orderan kamu sedang berlangsung!</h4>
                 <div className={styles.contmap}>
-                    <Image
-                        src="/aset/setting aset/map.svg" 
-                        alt="map"
-                        width={321}
-                        height={210}
-
-                    />
+                    <MapContainer />
                 </div>
                 <div className={styles.cont}>
                     <h3>Driver Handal</h3>
