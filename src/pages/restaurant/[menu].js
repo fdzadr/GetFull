@@ -52,6 +52,7 @@ export default function Menu({ restaurant }) {
     const cartItem = {
       restaurantId: restaurant.id,
       namaRestaurant: restaurant.nama,
+      alamat: restaurant.alamat,
       menuId: selectedMenu.id,
       namaMenu: selectedMenu.nama,
       harga: selectedMenu.harga,

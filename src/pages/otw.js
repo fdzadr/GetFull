@@ -10,8 +10,19 @@ import Footer from '/components/footer';
 import MapContainer from '/components/map';
 import Image from 'next/image';
 import { getSession, useSession, signOut } from "next-auth/react";
+import { checkout } from 'public/data/checkout';
 
 export default function otw({ getrichh }) {
+
+    const [cartData, setCartData] = useState([]);
+
+    useEffect(() => {
+        setCartData(checkout);
+      }, []);
+      console.log(cartData)
+
+    const checkoutData = JSON.stringify(cartData);
+
     
     return (
         <>
@@ -43,6 +54,8 @@ export default function otw({ getrichh }) {
                         </div>
                     </div>
                     <div className={styles.place}>
+                    {checkout.map((items) => (
+
                         <div className={styles.places}>
                         <Image className={styles.logo}
                                 src="/aset/setting aset/merchant.svg" 
@@ -50,9 +63,11 @@ export default function otw({ getrichh }) {
                                 width={23}
                                 height={24}
                             />
-                            <h6>Wisdom Park Food<br/></h6>
-                            Unnamed Road, Karang Malang, Caturtunggal, Kec. Depok
+                            <h6>{items.namaRestaurant}<br/></h6>
+                            {items.alamat}
                         </div>
+
+                    ))}
                         <div className={styles.places}>
                             <Image className={styles.logo}
                                 src="/aset/setting aset/loc.svg" 

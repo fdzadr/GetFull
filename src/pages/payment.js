@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getrich } from "public/data/getrich";
 import styles from '@/styles/payment.module.css'
 import React, { useState, useEffect } from "react";
+import  {checkout}  from "public/data/checkout";
 import dynamic from "next/dynamic";
 import Head from 'next/head';
 import Navback from '/components/navback';
@@ -10,6 +11,37 @@ import Image from 'next/image';
 import { getSession, useSession, signOut } from "next-auth/react";
 
 export default function payment({ getrichh }) {
+
+    const [cartData, setCartData] = useState([]);
+    const [totalHarga, setTotalHarga] = useState(0);
+    const [totalHargaAkhir, setTotalHargaAkhir] = useState(0);
+
+
+    useEffect(() => {
+        setCartData(checkout);
+      }, []);
+
+    useEffect(() => {
+        if (cartData && cartData.length > 0) {
+          let total = 0;
+          cartData.forEach((item) => {
+            total += item.harga;
+          });
+          setTotalHarga(total);
+        }
+    }, [cartData]);
+    
+    useEffect(() => {
+        if (cartData && cartData.length > 0) {
+          let totalakhir = 0;
+          let total = 0;
+          cartData.forEach((item) => {
+            total += item.harga;
+            totalakhir = total + 2000 + 8000;
+          });
+          setTotalHargaAkhir(totalakhir);
+        }
+    }, [cartData]);
     
     return (
         <>
@@ -76,7 +108,7 @@ export default function payment({ getrichh }) {
                     <footer class="fixed-bottom">
                         <div className={styles.foot}>
                                 <p class="text-end">
-                                    Total<br/>Rp30.000
+                                    Total<br/>{totalHargaAkhir}
                                 </p>  
                             <Link href="/otw">
                                 <div className={styles.cekout}>
