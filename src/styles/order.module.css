@@ -65,16 +65,21 @@
     height: 60px;
     display: flex;
     background-color: var(--putih-6);
-    justify-content: center;
+    justify-content:flex-end;
     box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
     color: black;
     line-height: 1;
-    margin-right: -100px;
+    margin-right: -0;
+
+}
+
+.foot p {
+    margin-right: 10px;
 }
 
 .cekout {
     display: block;
-    position: absolute;
+    position: relative;
     right: 0;
     background-color: var(--ijo-3);
     width: 120px;
