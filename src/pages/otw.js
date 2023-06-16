@@ -7,10 +7,22 @@ import Head from 'next/head';
 import Navback from '/components/navback';
 import Cart from '/components/cart/cart_display';
 import Footer from '/components/footer';
+import MapContainer from '/components/map';
 import Image from 'next/image';
 import { getSession, useSession, signOut } from "next-auth/react";
+import { checkout } from 'public/data/checkout';
 
 export default function otw({ getrichh }) {
+
+    const [cartData, setCartData] = useState([]);
+
+    useEffect(() => {
+        setCartData(checkout);
+      }, []);
+      console.log(cartData)
+
+    const checkoutData = JSON.stringify(cartData);
+
     
     return (
         <>
@@ -26,13 +38,7 @@ export default function otw({ getrichh }) {
             <div className={styles.container}>
                 <h4>Orderan kamu sedang berlangsung!</h4>
                 <div className={styles.contmap}>
-                    <Image
-                        src="/aset/setting aset/map.svg" 
-                        alt="map"
-                        width={321}
-                        height={210}
-
-                    />
+                    <MapContainer />
                 </div>
                 <div className={styles.cont}>
                     <h3>Driver Handal</h3>
@@ -48,6 +54,8 @@ export default function otw({ getrichh }) {
                         </div>
                     </div>
                     <div className={styles.place}>
+                    {checkout.map((items) => (
+
                         <div className={styles.places}>
                         <Image className={styles.logo}
                                 src="/aset/setting aset/merchant.svg" 
@@ -55,9 +63,11 @@ export default function otw({ getrichh }) {
                                 width={23}
                                 height={24}
                             />
-                            <h6>Wisdom Park Food<br/></h6>
-                            Unnamed Road, Karang Malang, Caturtunggal, Kec. Depok
+                            <h6>{items.namaRestaurant}<br/></h6>
+                            {items.alamat}
                         </div>
+
+                    ))}
                         <div className={styles.places}>
                             <Image className={styles.logo}
                                 src="/aset/setting aset/loc.svg" 

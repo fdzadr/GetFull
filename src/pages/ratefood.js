@@ -1,16 +1,15 @@
 import Link from 'next/link';
 import { getrich } from "public/data/getrich";
-import styles from '@/styles/cartfe.module.css'
+import styles from '@/styles/ratefood.module.css'
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Head from 'next/head';
 import Navback from '/components/navback';
-import Cart from '/components/cart/cart_display';
 import Footer from '/components/footer';
 import Image from 'next/image';
 import { getSession, useSession, signOut } from "next-auth/react";
 
-export default function order({}) {
+export default function ratedrive({ getrichh }) {
     
     return (
         <>
@@ -23,20 +22,23 @@ export default function order({}) {
 
         <Navback/>
 
+        <main>
             <div className={styles.container}>
                 <div className="mt-3">
                     <div className={styles.head}>
-                        <p>Keranjangku</p>
+                        <p>Nilai Produk</p>
                     </div>
                 </div>
-                <div className={styles.cartcon}>
-                    <Cart/>
+
+                <div className={styles.container1}>
 
                 </div>
+
+                <div className={styles.container2}>
+                    
+                </div>
             </div>
-
-        <Footer/>
-
+        </main>
         </>
     )
 }

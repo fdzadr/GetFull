@@ -55,63 +55,15 @@ export default function Resto() {
 
         <main>
         <div className={styles.container}>
-            <div className={styles2.search_box}>
-                    <button className={styles2.search_icon}>
-                        <Image 
-                            src="/aset/search box aset/search_icon.svg" 
-                            alt="logo google"
-                            width={25}
-                            height={25}
-                        />
-                    </button>
-                                
-                    <input onChange={handleChange} className={styles2.search_form} type="text" placeholder='Cari...'/>
-
-                    <button className={styles2.search_setting}>
-                        <Image 
-                            src="/aset/search box aset/search_setting.svg" 
-                            alt="logo google"
-                            width={25}
-                            height={25}
-                        />
-                    </button>
+            <div className="mt-3">
+                <Searchbox/>
             </div>
-
             
-            {filtered.map((item) => (
-                        <div className={styles1.card}>
-                            <Link href={`/restaurant/${item.namaresto}`} className={styles1.link}>
-                            <Image 
-                                src="/aset/listmerch aset/merch1.svg" 
-                                alt="logo"
-                                width={180}
-                                height={150}
-                                className={styles1.img}
-                            />
+            <div className="mt-3">
+                <Restaurant/>
+            </div>
             
-                            <div className={styles1.card_body}>
-                                <h6>{item.namaresto}</h6>
-                                <p>{item.alamat}</p>
-            
-                                <div className={styles1.rating}>
-                                    <Image 
-                                        src="/aset/restaurant/star.svg" 
-                                        alt="logo"
-                                        width={20}
-                                        height={20}
-                                        className="star"
-                                    />
-                                    <p>4.8</p>
-                                </div>
-                            </div>
-                            </Link>
-                        </div>
-                    ))}
-
-            
-        </div> 
-        
-        
+        </div>
         </main>
 
         <Footer/>

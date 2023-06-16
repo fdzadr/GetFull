@@ -1,0 +1,53 @@
+.container {
+    padding: 0 0 80px 0;
+}
+
+.head {
+    height: 25px;
+    background-color: var(--putih-6);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    margin-top: -15px;
+    padding-left: 10px;
+}
+
+.container1 {
+    background-color: white;
+    height: 200px;
+    width: 94%;
+    margin: 15px auto;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.container2 {
+    background-color: white;
+    height: 200px;
+    width: 94%;
+    margin: 15px auto;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.rating {
+    display: inline-block;
+    font-size: 0;
+  }
+
+.rating input {
+  display: none;
+}
+  
+.rating label {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url('/aset/rating/star.svg'); /* Replace with your star image */
+    background-size: cover;
+    cursor: pointer;
+}
+  
+.rating input:checked ~ label {
+    background-image: url('/aset/rating/starchecked.svg'); /* Replace with your filled star image */
+}
+  

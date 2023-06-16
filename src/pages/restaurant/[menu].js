@@ -31,14 +31,14 @@ export default function Menu({ restaurant }) {
     console.log(data)
   }, []);
 
-  const searchFilter = (data) => { 
-    return data.filter(
-    (product) => product.namaresto.toLowerCase()
-    .replace(/\s+/g, "")
-    .includes(query.toLowerCase().replace(/\s+/g, ""))
-  )};
+  // const searchFilter = (data) => { 
+  //   return data.filter(
+  //   (product) => product.namaresto.toLowerCase()
+  //   .replace(/\s+/g, "")
+  //   .includes(query.toLowerCase().replace(/\s+/g, ""))
+  // )};
 
-  const filtered = searchFilter(data)
+  // const filtered = searchFilter(data)
 
   const handleModal = (item) => {
     if (item) {
@@ -52,6 +52,7 @@ export default function Menu({ restaurant }) {
     const cartItem = {
       restaurantId: restaurant.id,
       namaRestaurant: restaurant.nama,
+      alamat: restaurant.alamat,
       menuId: selectedMenu.id,
       namaMenu: selectedMenu.nama,
       harga: selectedMenu.harga,
@@ -100,17 +101,6 @@ export default function Menu({ restaurant }) {
                 <h6>{restaurant.nama}</h6>
                 <p>{restaurant.alamat}</p>
               </div>
-
-              <div className={styles.header_rating}>
-                <Image 
-                  src="/aset/restaurant/star.svg" 
-                  alt="logo"
-                  width={20}
-                  height={20}
-                  className="star"
-                />
-                <p>{restaurant.rating}</p>
-              </div>
           </div>
         </div>
       </nav>
@@ -118,7 +108,7 @@ export default function Menu({ restaurant }) {
       <div className={styles.content}>
       <Searchbox/>
 
-        {filtered.map((item) => (
+        {restaurant.menu.map((item) => (
           <div className={styles.box} key={item.id}>
             <button type="button" className={styles.box_link} onClick={() => handleModal(item)}>
                 <Image 
@@ -131,7 +121,7 @@ export default function Menu({ restaurant }) {
 
                 <div className={styles.box_body}>
                     <div>
-                      <h5>{item.namaproduk}</h5>
+                      <h5>{item.nama}</h5>
                       <p>{item.deskripsi}</p>
                       <h6>{item.harga}</h6>
                     </div>

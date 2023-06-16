@@ -5,11 +5,12 @@ const filePath = path.join(process.cwd(), 'public/data/cart.js');
 
 export default function handler(req, res) {
   if (req.method === 'POST') {
-    const { restaurantId, namaRestaurant, menuId, namaMenu, harga } = req.body;
+    const { restaurantId, namaRestaurant, alamat, menuId, namaMenu, harga } = req.body;
 
     const cartItem = {
       restaurantId: parseInt(restaurantId),
       namaRestaurant,
+      alamat,
       menuId: parseInt(menuId),
       namaMenu,
       harga: parseInt(harga),
