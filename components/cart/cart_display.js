@@ -7,8 +7,10 @@ import dynamic from "next/dynamic";
 import { useRouter } from 'next/router';
 import styles2 from '@/styles/cartfe.module.css'
 
-export default function cart() {
 
+
+export default function cart() {
+  
     const [cartData, setCartData] = useState([]);
     const [totalHarga, setTotalHarga] = useState(0);
     const router = useRouter();
@@ -112,9 +114,11 @@ export default function cart() {
     };
     
   
-    const handleClearCart = () => {
-      setCartData([]);
+    const handleClearCart = (restaurantId) => {
+      const updatedCartData = cartData.filter(item => item.restaurantId !== restaurantId);
+      setCartData(updatedCartData);
       setTotalHarga(0);
+      
     };
 
     return (
@@ -151,7 +155,7 @@ export default function cart() {
                           <div className={styles2.foot}>
                             <p>Total Harga: {calculateTotalHarga(items)}</p>
                             <button className={styles2.cekout} onClick={() => handleCheckout(items[0].restaurantId)}>Checkout</button>
-                            <button className={styles2.clear} onClick={handleClearCart}>Clear</button>
+                            <button className={styles2.clear} onClick={() => handleClearCart(items[0].restaurantId)}>Clear</button>
                           </div>
                       )}
                     </div>
