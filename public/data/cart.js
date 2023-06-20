@@ -1,0 +1,1 @@
+export const carts = [{"restaurantId":1,"namaRestaurant":"Restoran Enak Mantep","alamat":"Jln. In Aja Dulu","menuId":2,"namaMenu":"Siomay","harga":11000},{"restaurantId":3,"namaRestaurant":"Restoran 25 jam","alamat":"Jln. Jalan Ke Taman Cakep","menuId":2,"namaMenu":"Es Teh","harga":10000}];

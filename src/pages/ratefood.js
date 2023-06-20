@@ -31,11 +31,17 @@ export default function ratedrive({ getrichh }) {
                 </div>
 
                 <div className={styles.container1}>
-
+                    <div className={styles.poto}>
+                    
+                    </div>
+                    Pesanan Anda
                 </div>
 
                 <div className={styles.container2}>
-                    
+                    <textarea className={styles.input} placeholder='Tulis review disini...'/>
+                    <Link href="/homepage">
+                        <button className={styles.button}>Kirim dan kembali ke Halaman Utama</button>
+                    </Link>
                 </div>
             </div>
         </main>
