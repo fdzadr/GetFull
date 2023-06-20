@@ -46,7 +46,7 @@ export default function otw({ getrichh }) {
       <div className={styles.container}>
         <h4>Orderan kamu sedang berlangsung!</h4>
         <div className={styles.contmap}>
-          <MapContainer />
+        {cartData.length > 0 && <MapContainer />}
         </div>
         <div className={styles.cont}>
           <h3>Driver Handal</h3>
@@ -62,7 +62,8 @@ export default function otw({ getrichh }) {
             </div>
           </div>
           <div className={styles.place}>
-            {checkout.map((items) => (
+          {cartData.length > 0 &&
+              <>
               <div className={styles.places}>
                 <Image
                   className={styles.logo}
@@ -72,12 +73,12 @@ export default function otw({ getrichh }) {
                   height={24}
                 />
                 <h6>
-                  {items.namaRestaurant}
+                  {cartData[0].namaRestaurant}
                   <br />
                 </h6>
-                {items.alamat}
+                {cartData[0].alamat}
               </div>
-            ))}
+            
             <div className={styles.places}>
               <Image
                 className={styles.logo}
@@ -89,6 +90,8 @@ export default function otw({ getrichh }) {
               <h6>UGM Central Office<br /></h6>
               69JH+WCH, Karang Malang, Caturtunggal, Depok
             </div>
+            </>
+          }
           </div>
         </div>
       </div>

@@ -51,7 +51,10 @@ export default function ratedrive({ getrichh }) {
           </div>
 
           <div className={styles.container1}>
-            
+            <div className={styles.poto}>
+              
+            </div>
+            DRIVER HANDAL
           </div>
 
           <div className={styles.container2}>

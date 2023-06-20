@@ -31,7 +31,10 @@ export default function ratedrive({ getrichh }) {
                 </div>
 
                 <div className={styles.container1}>
-
+                    <div className={styles.poto}>
+                    
+                    </div>
+                    Pesanan Anda
                 </div>
 
                 <div className={styles.container2}>

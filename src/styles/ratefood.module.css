@@ -11,15 +11,25 @@
     padding-left: 10px;
 }
 
-.container1 {
-    background-color: white;
-    height: 200px;
-    width: 94%;
-    margin: 15px auto;
-    border-radius: 20px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.poto{
+  height: 100px;
+  width: 100px;
+  background-color: #f3f3f3;
+  margin: 10px auto;
 }
 
+.container1 {
+  background-color: white;
+  height: 200px;
+  width: 94%;
+  margin: 15px auto;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  padding: 10px 0;
+  font-size: larger;
+  font-weight: 600;
+}
 .container2 {
     background-color: white;
     height: 200px;
